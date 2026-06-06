@@ -1,0 +1,134 @@
+@font-face {
+    font-family: 'CustomFont';
+    src: url('../../assets/fonts/custom-font.ttf') format('truetype');
+}
+
+.wristbands-container {
+    position: relative;
+    background-color: transparent;
+    height: 0px;
+    width: 100%;
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'CustomFont', 'Anton', sans-serif;
+    z-index: 50;
+}
+
+/* Conteneur global pour centrer l'animation */
+.wristbands-container .scene {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Structure de base d'un bracelet */
+.wristbands-container .wristband {
+    position: absolute;
+    width: 150vw; /* Plus large que l'écran pour traverser de bout en bout */
+    height: 140px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+    font-size: 90px;
+    text-transform: uppercase;
+    line-height: 1;
+    white-space: nowrap;
+    color: #000;
+    border-top: 2px solid rgba(255,255,255,0.2);
+    border-bottom: 2px solid rgba(0,0,0,0.8);
+}
+
+/* Embout blanc façon papier Tyvek */
+.wristbands-container .band-end {
+    min-width: 150px;
+    height: 100%;
+    background: #fff;
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.03) 10px, rgba(0,0,0,0.03) 20px);
+    border-right: 4px dashed #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: monospace;
+    font-size: 14px;
+    color: #666;
+    transform: rotate(-90deg);
+}
+
+/* Zone de contenu colorée */
+.wristbands-container .band-content {
+    flex-grow: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.wristbands-container .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll 40s linear infinite;
+}
+
+.wristbands-container .marquee-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 0 20px;
+}
+
+@keyframes marquee-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Styles spécifiques pour chaque bracelet */
+.wristbands-container .band-1 {
+    background: linear-gradient(90deg, #000 10%, #ccff00 10%, #ccff00 40%, #8b5cf6 60%, #ec4899 100%);
+    z-index: 1;
+}
+
+/* Éléments graphiques internes */
+.wristbands-container .box-outline {
+    border: 3px solid #000;
+    padding: 5px 20px;
+    font-size: 60px;
+    display: inline-block;
+}
+
+.wristbands-container .checkerboard {
+    width: 80px;
+    height: 80px;
+    background-image: 
+        repeating-linear-gradient(45deg, #4f46e5 25%, transparent 25%, transparent 75%, #4f46e5 75%, #4f46e5), 
+        repeating-linear-gradient(45deg, #4f46e5 25%, #9ca3af 25%, #9ca3af 75%, #4f46e5 75%, #4f46e5);
+    background-position: 0 0, 20px 20px;
+    background-size: 40px 40px;
+    border: 3px solid #000;
+}
+
+.wristbands-container .cursor {
+    font-size: 40px;
+    filter: drop-shadow(2px 2px 0px #fff);
+}
+
+/* Application d'un effet de bruit SVG sur toute la scène */
+.wristbands-container .noise-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    opacity: 0.4;
+    z-index: 10;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
