@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/ADX/',
+  base: '/',        // ✅ était '/ADX/', changé pour Vercel
   plugins: [
     tailwindcss(),
     react()
@@ -12,4 +12,4 @@ export default defineConfig({
   optimizeDeps: {
     include: ["gsap"],
   },
-});
+})
