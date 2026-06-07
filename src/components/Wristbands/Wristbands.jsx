@@ -52,12 +52,10 @@ const Wristbands = () => {
                         <div className="marquee-track">
                             {[...Array(10)].map((_, i) => (
                                 <div className="marquee-content" key={i}>
-                                    <span style={{ color: 'white' }}>ADX®</span>
-                                    <div className="checkerboard"></div>
-                                    <span className="cursor">👆</span>
-                                    <span style={{ fontSize: '110px' }}>BÉNIN</span>
-                                    <span>→</span>
-                                    <span style={{ fontSize: '110px' }}>2026</span>
+                                    <span className="wristband-solid" style={{ fontSize: '110px', color: '#ff3366' }}>→</span>
+                                    <span className="wristband-solid" style={{ fontSize: '110px' }}>2026</span>
+                                    <span className="wristband-solid" style={{ fontSize: '110px' }}>ADX®</span>
+                                    <span className="wristband-solid" style={{ fontSize: '110px' }}>BÉNIN</span>
                                 </div>
                             ))}
                         </div>

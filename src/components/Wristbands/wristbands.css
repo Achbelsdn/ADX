@@ -95,8 +95,21 @@
 
 /* Styles spécifiques pour chaque bracelet */
 .wristbands-container .band-1 {
-    background: linear-gradient(90deg, #000 10%, #ccff00 10%, #ccff00 40%, #8b5cf6 60%, #ec4899 100%);
+    background: #f4efe7;
     z-index: 1;
+    transform: rotate(-3deg);
+    border: none;
+}
+
+.wristband-solid {
+    color: #111;
+    font-weight: 800;
+}
+
+.wristband-outline {
+    color: transparent;
+    -webkit-text-stroke: 2px #111;
+    font-weight: 800;
 }
 
 /* Éléments graphiques internes */

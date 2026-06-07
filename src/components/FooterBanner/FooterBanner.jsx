@@ -80,7 +80,8 @@ const FooterBanner = () => {
                     keyboardAnimated.current = true;
                     gsap.set(".keyboard-container", { perspective: 1500 }); // On ne met PAS pointerEvents auto pour ne pas bloquer le scroll
                     animate('.keyboard-container', {
-                        scale: [0.5, 1], // Il prend tout l'espace
+                        scale: [0.5, 0.8], // Réduit pour qu'il s'affiche complètement sans déborder
+                        translateY: [0, '-5%'], // Remonte légèrement pour éviter la coupure en bas
                         opacity: [0, 1],
                         rotateX: ['60deg', '0deg'], // Il commence "posé" (couché) et se redresse
                         rotateZ: ['-15deg', '0deg'],
@@ -105,7 +106,8 @@ const FooterBanner = () => {
                 if (keyboardAnimated.current) {
                     keyboardAnimated.current = false;
                     animate('.keyboard-container', {
-                        scale: [1, 0.5],
+                        scale: [0.8, 0.5],
+                        translateY: ['-5%', 0],
                         opacity: [1, 0],
                         rotateX: ['0deg', '60deg'],
                         rotateZ: ['0deg', '15deg'],
@@ -127,7 +129,7 @@ const FooterBanner = () => {
         <div 
             ref={fbConRef} 
             onMouseMove={handleMouseMove}
-            className="relative w-full min-h-dvh bg-[#000000] flex flex-col items-center justify-center overflow-hidden py-20"
+            className="relative w-full h-[130vh] bg-[#000000] flex flex-col items-center justify-center overflow-hidden py-20"
         >
 
             {/* Contenu Principal */}
@@ -144,7 +146,7 @@ const FooterBanner = () => {
 
             {/* CLAVIER 3D SPLINE - NOUVELLE VERSION */}
             {/* L'espace entier devient l'espace du clavier (inset-0, w-full h-full) */}
-            <div className="keyboard-container absolute inset-0 z-40 w-full h-full pointer-events-none opacity-0">
+            <div className="keyboard-container absolute top-0 left-0 right-0 bottom-[10%] z-40 w-full pointer-events-none opacity-0">
                 <iframe 
                     src="https://my.spline.design/customkeyboardcmdcorv-z0dSNUEvaZl1LNYNf2qk3QPt/" 
                     frameBorder="0" 
