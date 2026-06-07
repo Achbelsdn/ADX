@@ -23,8 +23,14 @@ const Choose = () => {
                 const imgSpan = line.querySelector('.img-span');
                 
                 if (imgSpan) {
+                    let finalWidth = targetWidth;
+                    // Si l'image a la classe img-span-small, on réduit sa largeur cible pour éviter les décalages
+                    if (imgSpan.classList.contains('img-span-small')) {
+                        finalWidth = isMobile ? 70 : 180;
+                    }
+                    
                     gsap.to(imgSpan, {
-                        width: targetWidth,
+                        width: finalWidth,
                         ease: "none",
                         scrollTrigger: {
                             trigger: line,
@@ -82,7 +88,7 @@ const Choose = () => {
                 </div>
                 <div className="line-reveal flex flex-wrap justify-center items-center gap-3 md:gap-5">
                     <span className={textClass} style={fontStyle}>les marques</span>
-                    <span className={`img-span ${imgHeightClass} w-0 rounded-[5px] overflow-hidden relative inline-block shrink-0`}>
+                    <span className={`img-span img-span-small ${imgHeightClass} w-0 rounded-[5px] overflow-hidden relative inline-block shrink-0`}>
                         <img className={`absolute left-1/2 h-full ${imgWidthClass} max-w-none -translate-x-1/2 rounded-[5px] object-cover object-center`} src="https://i.pinimg.com/1200x/9e/f2/b7/9ef2b73b1e2ff489f99bc0a90196fbea.jpg" alt="" />
                     </span>
                     <span className={textClass} style={fontStyle}>en avant.</span>
