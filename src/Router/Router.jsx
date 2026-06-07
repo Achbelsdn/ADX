@@ -1,14 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
-
 import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/Home/Home";
 
 const router = createBrowserRouter([
     {
-        path: "/ADX", // GitHub Pages repo name
-        element: <MainLayout />, // Layout wrapper
+        path: "/",           // ✅ était "/ADX"
+        element: <MainLayout />,
         children: [
-            { path: "", element: <Home /> }, // default page
+            { index: true, element: <Home /> },  // ✅ index au lieu de path: ""
         ],
     },
 ]);
