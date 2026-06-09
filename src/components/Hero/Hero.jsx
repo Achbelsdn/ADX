@@ -167,7 +167,7 @@ const Hero = () => {
   </span>
 </div>
 
-            {/* Inner wrapper larger than container to push logo out of bounds while keeping diamond centered */}
+            {/* Inner wrapper using clip-path cheat code to push logo out of bounds and mask it completely */}
             <div className="absolute w-[calc(100%+200px)] h-[calc(100%+150px)] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
               <iframe 
                 src="https://my.spline.design/diamond3dcopycopy-dR24hXV7Ep1LReJe3S6Lb8Ki-13R/" 
@@ -175,6 +175,7 @@ const Hero = () => {
                 width="100%" 
                 height="100%"
                 className="w-full h-full"
+                style={{ clipPath: 'polygon(0% 0%, 100% 0%, 100% calc(100% - 80px), calc(100% - 250px) calc(100% - 80px), calc(100% - 250px) 100%, 0% 100%)' }}
               ></iframe>
             </div>
           </div>

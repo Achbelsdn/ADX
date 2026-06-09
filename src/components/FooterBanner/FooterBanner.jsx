@@ -154,9 +154,9 @@ const FooterBanner = () => {
                     height="100%"
                     className="w-full h-full pointer-events-none bg-transparent"
                     allowTransparency="true"
+                    style={{ clipPath: 'polygon(0% 0%, 100% 0%, 100% calc(100% - 80px), calc(100% - 250px) calc(100% - 80px), calc(100% - 250px) 100%, 0% 100%)' }}
                 ></iframe>
-                {/* Patch noir pour cacher le logo Spline sans rogner l'iframe */}
-                <div className="absolute bottom-0 right-0 w-[160px] h-[60px] bg-[#000000] z-50 pointer-events-none"></div>
+                {/* Logo masked completely using clip-path cheat code on the iframe */}
             </div>
         </div>
     );
